@@ -1,0 +1,528 @@
+#templatePopup {
+position:absolute;
+top:0;
+left:0;
+transition:all 1s;
+width:240px;
+}
+
+.customLegend {
+  display:block;
+  z-index:2000;
+  position:absolute;
+    bottom: 100px;
+    right: 10px;
+}
+@media screen and (min-width:540px) {
+  .customLegend {
+    bottom: 20px;
+    right: -10px;
+  }
+}
+@keyframes interactivity {
+    0% {opacity: 0;}
+    30% {opacity: 1;}
+    70% {opacity: 1;}
+    100%{opacity:0;}
+}
+#map img {
+  cursor:default;
+}
+#interactivity {
+     display: block;
+    font-family: MarkWebProBook,serif;
+    pointer-events: none;
+    text-align: center;
+    opacity: 0;
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+
+}
+.div.cartodb-tooltip {
+  z-index:3001!important;
+}
+#interactivity.show {
+   animation-name: interactivity;
+    animation-duration: 1s;
+}
+.customLegend .choropleth,.customLegend .dots {
+  display:none;
+}
+div.cartodb-legend.dots {
+  width:88px;
+  text-align: right;
+}
+div.cartodb-legend.dots ul {
+  margin-top:10px;
+}
+div.cartodb-legend.dots li {
+  float:right;
+  clear:both;
+}
+div.cartodb-legend.dots .subhead {
+  margin-bottom: 10px;
+  text-align: right;
+  font-size: 12px;
+  color: #666;
+  font-family: Helvetica, Arial;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+div.cartodb-legend.dots .dot {
+  float:right;
+  margin-left:10px;
+  height:10px;
+  width:10px;
+  border-radius: 50%;
+}
+@media screen and (max-width:650px) {
+  #catswitch li {
+    /*width:calc(50% - 3.5rem);*/
+  }
+  div.cartodb-legend.choropleth {
+    padding: 7px 10px 10px;
+  }
+  div.cartodb-legend.choropleth li.graph,div.cartodb-legend.choropleth li.graph div {
+    height:10px;
+  }
+
+  .locked .cartodb-map-wrapper {
+    pointer-events: none;
+  }
+  .customLegend {
+    bottom:0;
+  }
+}
+@media screen and (max-width:650px) {
+  .locked .cartodb-zoom {
+    /*display:none;*/
+    opacity:.6;
+  }
+}
+
+.cartodb-tooltip img, .cartodb-infowindow img {
+  position: absolute;
+  top:0;
+  right:0;
+}
+.cartodb-tooltip, .cartodb-infowindow {
+  width:200px;
+  box-shadow:1px 1px 5px 3px rgba(0,0,0,.2);
+
+  max-width:50%;
+z-index:3000;
+}
+
+@media screen and (min-width:540px) {
+   .cartodb-infowindow,.cartodb-tooltip img, .cartodb-infowindow img {
+    /*display:none!important;*/
+   }
+}
+.cartodb-tooltip p.wahlbeteiligung,
+.cartodb-infowindow p.wahlbeteiligung,
+.cartodb-tooltip p.weisse,
+.cartodb-infowindow p.weisse,
+.cartodb-tooltip p.mittleres_alter,
+.cartodb-infowindow p.mittleres_alter {
+  /*border-bottom: 1px solid #ececec;*/
+  /*border-bottom: 1px solid #86b5bc;
+  margin-bottom: 10px;*/
+  border-top: 1px solid #333;
+  /*color:#999;*/
+  padding-top:10px!important;
+}
+
+.cartodb-tooltip p.sieger,
+.cartodb-infowindow p.sieger {
+  /*border-bottom: 1px solid #ececec;*/
+  border-bottom: 1px solid #86b5bc;
+  margin-bottom: 10px;
+}
+#lockbutton {
+    z-index: 5;
+    display: none;
+    opacity:.6;
+    width: 35px;
+    position: absolute;
+    top: 85px;
+    box-shadow: rgba(0,0,0,.2) 0 0 4px 2px;
+    left: 20px;
+ border-radius: 4px;    background: #fff;
+    border: 1px solid#999;
+    padding: 0px;
+    height: 35px;
+}
+@media screen and (max-width: 650px) {
+  #lockbutton {
+    display:block;
+  }
+}
+.locked #lockbutton {
+  /*display:block;*/
+  opacity:1;
+}
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+#map {
+  width: 1px;
+       min-width: 100%;
+       *width: 100%;
+  position: relative;
+  max-width:100%;
+  height:400px;
+  margin-right:10px;
+  clear:left;
+  float:left;
+}
+ol {
+  list-style-type: none;
+}
+#timeslide {
+  display:none;
+}
+#timeslide li {
+  padding:50px;
+  cursor:pointer;
+  margin-right:15px;
+  background: #ececec;
+  float:left;
+}
+#timeslide li.active {
+  background:#cecece;
+}
+.leaflet-container {
+  background: #fff;
+}
+li {
+  /*position:absolute;*/
+  top:20px;
+  left:20px;
+  list-style: none;
+  float:left;
+}
+#catswitch {
+  padding:0;
+  /*margin-top:20px;*/
+}
+#catswitch li {
+
+     -webkit-font-smoothing: antialiased;
+  height: 2.55rem;
+  padding: 0 .7rem;
+  margin: 0 .45rem;
+  line-height: 3rem;
+  text-align:center;
+  font-family:"MarkWebProLight", sans-serif;
+  cursor:pointer;
+  float:left;
+  font-size:15px;
+  font-weight:bold;
+  border-bottom:3px solid #fff;
+}
+div.cartodb-tooltip {
+  z-index:3002;
+}
+#catswitch li.active {
+  border-bottom:3px solid #1d1d1d;
+}
+.cartodb-tooltip-content,
+.cartodb-tooltip-content-wrapper {
+  pointer-events: none;
+}
+div.cartodb-tooltip-content {
+  pointer-events: none;
+}
+div.cartodb-tooltip-content p.clinton b,#catswitch li.clinton {
+  color:#1D1D1D;
+}
+#catswitch li.clinton.active {
+  border-bottom:3px solid #1D1D1D;
+}
+div.cartodb-tooltip-content p.trump b,#catswitch li.trump {
+  color:#1D1D1D;
+}
+#catswitch li.trump.active {
+  border-bottom:3px solid #1D1D1D;
+}
+div.cartodb-tooltip-content p.historie b,#catswitch li.historie {
+  color:#1D1D1D;
+}
+#catswitch li.historie.active {
+  border-bottom:3px solid #1D1D1D;
+}
+div.cartodb-tooltip-content p.nichtwaehler b,#catswitch li.nihtwaehler {
+  color:#1D1D1D;
+}
+#catswitch li.nichtwaehler.active {
+  border-bottom:3px solid #1D1D1D;
+}
+div.cartodb-tooltip-content p.sieger b,#catswitch li.sieger {
+  /*color:#F6A200;*/
+  color:#1D1D1D;
+}
+#catswitch li.sieger.active {
+  /*border-bottom:3px solid #F6A200;*/
+  border-bottom:3px solid #1D1D1D;
+}
+div.cartodb-tooltip-content p span {
+  float:right;
+}
+div.cartodb-tooltip-content p span.diff {
+  color:#888;
+  margin-left:5px;
+}
+h1 {
+font-family:Georgia,"Times New Roman",Times,serif;
+font-size:29px;
+color:#1d1d1b;
+font-weight:normal;
+}
+h2 {
+font-weight:bold;
+color:#1d1d1b;
+font-size:15px;
+}
+h1,h2 {
+  display:none;
+}
+body {
+  max-width: 940px;
+  background: #fff;
+}
+#tooltip {
+  float:left;
+
+  width: 225px;
+}
+#tooltip ul {
+    height:500px;
+  padding-right:10px;
+    overflow-y: scroll;
+    padding-left:0;
+      overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+#tooltip .category,#tooltip .date {
+  float:left;
+
+}
+#tooltip .date {
+  margin-right:20px;
+  font-family: Arial,"sans-serif";
+  font-weight:bold;
+  font-size:14px;
+  color:#cc0000;
+}
+#tooltip .location {
+  display:block;
+  text-transform: uppercase;
+
+
+  font-family: Arial,"sans-serif";
+  font-size:17px;
+}
+#tooltip .category {
+  font-family: Arial,"sans-serif";
+  font-weight:bold;
+  font-size:14px;
+}
+#tooltip .text {
+  color:#1d1d1b;
+  clear:left;
+  padding-top:10px;
+  font-size:15px;
+  font-family: Arial,"sans-serif";
+}
+#tooltip li {
+  padding:10px;
+  border-bottom:1px solid #999999;
+}
+p.intro {
+  font-family:Arial,"sans-serif";
+  font-size:14px;
+  margin-bottom:25px;
+  color:#888888;
+  margin-top:20px;
+  /*display:none;
+  clear:left;
+  float:left;*/
+  clear: both;
+  height: 1px;
+  float: none;
+  display: block;
+}
+#legend {
+  position:relative;
+  bottom:-30px;
+  right:0px;
+}
+#legend li span {
+  color:#1d1d1b;
+  font-size:13px;
+    font-family:Arial,"sans-serif";
+
+}
+#mobilefallback {
+  display:none;
+}
+#mobilefallback > img{
+  max-width: 100%;
+  min-width: 100%;
+}
+.mobdevice #mobilefallback {
+  display: block;
+}
+
+#legend li span.high {
+  float:right;
+
+}
+#legend li div {
+  width:100%;
+  margin:3px 0;
+  height:15px;
+}
+#legend li.refugees div {
+ background-color: #ECF0F6;
+  background-image: linear-gradient(to right,#ECF0F6, #0064a0);
+  background: #ECF0F6;
+  background: linear-gradient(to right,#ECF0F6, #0064a0);
+  }
+  #legend li.incidents div {
+ background-color: #ffb101;
+  background-image: linear-gradient(to right,#ffb101, #840700);
+  background: #ffb101;
+  background: linear-gradient(to right,#ffb101, #840700);
+  }
+#legend li {
+  width:220px;
+}
+#legend li.refugees {
+  margin-bottom:20px;
+}
+.mapwrapper {
+  position:relative;
+}
+
+          @font-face {
+            font-family: "MarkWebProLight";
+            src: url("https://static.apps.welt.de/2016/fonts/fonts/MarkWebPro-Light.woff");
+        }
+
+        @font-face {
+            font-family: "MarkWebProLight";
+            src: url("https://static.apps.welt.de/2016/fonts/fonts/MarkWebPro-LightItalic.woff");
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: "MarkWebProLight";
+            src: url("https://static.apps.welt.de/2016/fonts/fonts/MarkWebPro-Bold.woff");
+            font-weight: bold;
+        }
+
+        @font-face {
+            font-family: "MarkWebProBook";
+            src: url("https://static.apps.welt.de/2016/fonts/fonts/MarkWebPro-Book.woff");
+        }
+
+        @font-face {
+            font-family: "MarkWebProBook";
+            src: url("https://static.apps.welt.de/2016/fonts/fonts/MarkWebPro-Bold.woff");
+            font-weight: bold;
+        }
+
+        @font-face {
+            font-family: "MarkWebPro";
+            src: url("https://static.apps.welt.de/2016/fonts/fonts/MarkWebPro-Bold.woff");
+            font-weight: bold;
+        }

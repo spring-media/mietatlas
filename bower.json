@@ -1,0 +1,7 @@
+{
+  "name": "carto6",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}
