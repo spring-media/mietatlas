@@ -1,10 +1,12 @@
+
 iframe {
   border:none;
   max-width:100%;
   min-width:100%;
   width:100%;
   display:block;
-  height:600px;
+  height:690px;
+  /*max-height:70vh;*/
 }
 ol#pe_mietatlas {
   padding:0;
@@ -82,6 +84,10 @@ div.cartodb-legend.dots .dot {
   border-radius: 50%;
 }
 @media screen and (max-width:650px) {
+  iframe {
+    height:600px;
+    max-height:80vh;
+  }
   #catswitch li {
     /*width:calc(50% - 3.5rem);*/
   }
@@ -280,7 +286,9 @@ li {
   float:left;
 }
 #catswitch {
+  display:inline-block;
   padding:0;
+  margin:0;
   /*margin-top:20px;*/
 }
 #catswitch li {
