@@ -1,3 +1,25 @@
+iframe {
+  border:none;
+  max-width:100%;
+  min-width:100%;
+  width:100%;
+  display:block;
+  height:600px;
+}
+ol#pe_mietatlas {
+  padding:0;
+  margin:0;
+}
+ol#pe_mietatlas li {
+  display:none;
+}
+ol#pe_mietatlas li.active {
+  display:block;
+}
+ol#pe_mietatlas li {
+  /*display: inline-block;*/
+  width:100%
+}
 #templatePopup {
 position:absolute;
 top:0;
@@ -19,39 +41,15 @@ width:240px;
     right: -10px;
   }
 }
-@keyframes interactivity {
-    0% {opacity: 0;}
-    30% {opacity: 1;}
-    70% {opacity: 1;}
-    100%{opacity:0;}
-}
+
 #map img {
   cursor:default;
 }
-#interactivity {
-     display: block;
-    font-family: MarkWebProBook,serif;
-    pointer-events: none;
-    text-align: center;
-    opacity: 0;
-    background-color: rgba(0,0,0,.5);
-    color: #fff;
-    padding: 20px;
-    position: fixed;
-    top: 50%;
-    width: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 5px;
 
-}
 .div.cartodb-tooltip {
   z-index:3001!important;
 }
-#interactivity.show {
-   animation-name: interactivity;
-    animation-duration: 1s;
-}
+
 .customLegend .choropleth,.customLegend .dots {
   display:none;
 }
@@ -94,18 +92,13 @@ div.cartodb-legend.dots .dot {
     height:10px;
   }
 
-  .locked .cartodb-map-wrapper {
-    pointer-events: none;
-  }
+
   .customLegend {
     bottom:0;
   }
 }
 @media screen and (max-width:650px) {
-  .locked .cartodb-zoom {
-    /*display:none;*/
-    opacity:.6;
-  }
+
 }
 
 .cartodb-tooltip img, .cartodb-infowindow img {
@@ -165,10 +158,7 @@ z-index:3000;
     display:block;
   }
 }
-.locked #lockbutton {
-  /*display:block;*/
-  opacity:1;
-}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -314,13 +304,7 @@ div.cartodb-tooltip {
 #catswitch li.active {
   border-bottom:3px solid #1d1d1d;
 }
-.cartodb-tooltip-content,
-.cartodb-tooltip-content-wrapper {
-  pointer-events: none;
-}
-div.cartodb-tooltip-content {
-  pointer-events: none;
-}
+
 div.cartodb-tooltip-content p.clinton b,#catswitch li.clinton {
   color:#1D1D1D;
 }

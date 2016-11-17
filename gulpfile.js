@@ -11,6 +11,7 @@ gulp.task('styles', function () {
     return gulp.src(['app/styles/main.css'])
         .pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('app/styles'))
+        .pipe($.livereload())
         .pipe($.size());
 });
 

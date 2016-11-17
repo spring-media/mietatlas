@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title>US-Wahlen 2016</title>
+    <title>Mietatlas</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css" />
@@ -16,207 +16,39 @@
 
   </head>
   <body>
-  <div id="mobilefallback" >
-      <img src=""/>
-  </div>
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
 
 <h1 class="headline"></h1>
 <h2></h2>
  <ul id="catswitch">
-    <!-- <li class="sieger" data-category="sieger">Wahlsieger</li> -->
-    <li class="ergebnis" data-category="ergebnis">Ergebnis</li>
-    <li class="weisse" data-category="weisse">Weiße</li>
-    <li class="hispanics" data-category="hispanics">Hispanics</li>
-    <li class="schwarze" data-category="schwarze">Schwarze</li>
-    <li class="arbeitslose" data-category="arbeitslose">Arbeitslose</li>
+    <li class="berlin" data-category="berlin">Berlin</li>
+    <li class="hamburg" data-category="hamburg">Hamburg</li>
+    <li class="muenchen" data-category="muenchen">München</li>
+    <li class="koeln" data-category="koeln">Köln</li>
+    <li class="frankfurt" data-category="frankfurt">Frankfurt</li>
+    <li class="stuttgart" data-category="stuttgart">Stuttgart</li>
+    <li class="duesseldorf" data-category="duesseldorf">Düsseldorf</li>
   </ul>
 
 
     <p class="intro"></p>
     <div class="mapwrapper">
         <div class="locked" id="map">
-          <img id="lockbutton" src="./img/interactive.svg"/>
+          <ol id="pe_mietatlas">
+            <li class="berlin"><iframe data-src="https://homeday.carto.com/viz/b2265ab3-6d63-429a-9c43-0c66a5eca7f0/embed_map"></iframe></li>
+            <li class="hamburg"><iframe data-src="https://homeday.carto.com/viz/0665744f-750d-432d-9e2b-00b75f822f61/embed_map"></iframe></li>
+            <li class="muenchen"><iframe data-src="https://homeday.carto.com/viz/62ca5b2a-cecf-440c-896c-58399551b21a/embed_map"></iframe></li>
+            <li class="koeln"><iframe data-src="https://homeday.carto.com/viz/9c1518ec-7dc4-47ac-982a-d531bbb4fcfc/embed_map"></iframe></li>
+            <li class="frankfurt"><iframe data-src="https://homeday.carto.com/viz/67752849-8477-48bd-b749-a6f834f7fc7b/embed_map"></iframe></li>
+            <li class="stuttgart"><iframe data-src="https://homeday.carto.com/viz/604ef73b-6374-4ba4-be31-3f1a6bfffc75/embed_map"></iframe></li>
+            <li class="duesseldorf"><iframe data-src="https://homeday.carto.com/viz/43ad5fbc-f8f3-4426-a326-a7ac51e1bdfb/embed_map"></iframe></li>
+          </ol>
+
         </div>
       </div>
    </div>
 
     <script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
 
-
-
-<div id="templatePopup" style="display: none">
-
-<div class="cartodb-tooltip-content-wrapper">
-  <div class="cartodb-tooltip-content">
-    <p style="font-size: 14px; line-height: 1.5em;">{{bundesstaat}}</p>
-    <p class="clinton"><b style="font-weight: bold;">Clinton:</b> <span>{{ergebnis_clinton}} %</span></p>
-    <p class="trump"><b style="font-weight: bold;">Trump:</b> <span>{{ergebnis_trump}} %</span></p>
-    <p class="weisse"><b style="font-weight: bold;">Weiße:</b> <span>{{anteil_weisse}} %</span></p>
-    <p class="hispanics"><b style="font-weight: bold;">Hispanics:</b> <span>{{anteil_hispanics}} %</span></p>
-    <p class="schwarze"><b style="font-weight: bold;">Schwarze:</b> <span>{{anteil_schwarze}} %</span></p>
-    <p class="arbeitslose"><b style="font-weight: bold;">Arbeitslose:</b> <span>{{anteil_arbeitslose}} %</span></p>
-
-    <!-- <p class="wgr"><b style="font-weight: bold;">W&Auml;HLERGRUPPEN:</b> <span>{{wgr}} %</span></p> -->
-    <!-- <p class="fussnote">{{fussnote}}</p> -->
-  </div>
-  <!--<img class="close" src="./img/close.svg"/>-->
-</div>
-
-</div>
-
-
-<style type="cartoCSS" id="sieger_css">
-
-#layer {
-  polygon-fill: #ddd;
-  line-width: 1;
-  line-color: #FFF;
-  line-opacity: 1;
-}
-#layer[sieger="Trump"] {
-   polygon-fill: #b71336;
-}
-#layer[sieger="Clinton"] {
-   polygon-fill: #2f8dcd;
-}
-#layer[sieger="Sonstige"] {
-   polygon-fill: #64964b;
-}
-</style>
-
-<style type="cartoCSS" id="clinton_css">
-
-
-#layer {
-  polygon-fill: ramp([ergebnis_clinton], (#dce8f5, #b8cfeb, #92b8e1, #68a2d7, #2f8dcd), jenks);
-  line-width: 1;
-  line-color: #ffffff;
-  line-opacity: 1;
-}
-</style>
-
-<style type="cartoCSS" id="trump_css">
-
-
-
-
-#layer {
-  polygon-fill: ramp([ergebnis_trump], (#f8d4d3, #edaaa8, #de7e80, #cc525a, #b71336), jenks);
-  line-width: 1;
-  line-color: #ffffff;
-  line-opacity: 1;
-}
-</style>
-
-<style type="cartoCSS" id="historie_css">
-#layer {
-  polygon-fill: ramp([historie], (#2f8dcd, #b71336, #de7e80, #edad08, #92b8e1, #cccccc), category(6));
-  line-width: 1;
-  line-color: #ffffff;
-  line-opacity: 1;
-}
-</style>
-
-
-<style type="cartoCSS" id="nichtwaehler_css">
-#layer {
-  polygon-fill: ramp([nichtwaehler], (#e6f0f1, #cee1e4, #b7d2d7, #9ec3c9, #86b5bc), jenks);
-  line-width: 1;
-  line-color: #ffffff;
-  line-opacity: 1;
-}
-</style>
-
-
-<style type="cartoCSS" id="ergebnis_css">
-#layer {
-  polygon-fill: ramp([vorsprung_cat], (#c4d7ef, #b71336, #d97073, #2f8dcd, #85b2de, #f1b8b6, #cccccc), category(7), category);
-  line-width: 1;
-  line-color: #FFF;
-  line-opacity: 1;
-}
-</style>
-
-<style type="cartoCSS" id="weisse_css">
-#layer {
-  polygon-fill: ramp([anteil_weisse], (#fee9b7, #fce095, #f8d672, #f3cc50, #edc31e), jenks);
-  line-width: 1;
-  line-color: #FFF;
-  line-opacity: 1;
-}
-</style>
-
-
-<style type="cartoCSS" id="hispanics_css">
-
-#layer {
-  polygon-fill: ramp([anteil_hispanics], (#ffe8d6, #ffd1ac, #ffb77f, #fa9f54, #f18825), jenks);
-  line-width: 1;
-  line-color: #FFF;
-  line-opacity: 1;
-}
-
-</style>
-
-
-<style type="cartoCSS" id="schwarze_css">
-
-#layer {
-  polygon-fill: ramp([anteil_schwarze], (#e5cfdb, #caa0b8, #ae7497, #924676, #741057), jenks);
-  line-width: 1;
-  line-color: #FFF;
-  line-opacity: 1;
-}
-</style>
-
-
-<style type="cartoCSS" id="arbeitslose_css">
-
-#layer {
-  polygon-fill: ramp([anteil_arbeitslose], (#e0e9d9, #c1d5b5, #a2c091, #83aa6d, #64964b), jenks);
-  line-width: 1;
-  line-color: #FFF;
-  line-opacity: 1;
-}
-</style>
-
-
-
-<div id="interactivity" class="activate">Interaktiv-Modus AN</div>
-<div id="interactivity" class="deactivate">Interaktiv-Modus AUS</div>
-
-<div class="customLegend">
-  <div class='cartodb-legend choropleth'>
-  <ul>
-    <li class="min">
-
-    </li>
-    <li class="max">
-
-    </li>
-    <li class="graph count_378">
-    <div class="colors">
-    <div class="quartile" style="background-color:#fff"></div>
-    <div class="quartile" style="background-color:#fff"></div>
-    <div class="quartile" style="background-color:#fff"></div>
-    <div class="quartile" style="background-color:#fff"></div>
-    <div class="quartile" style="background-color:#fff"></div>
-    </div>
-    </li>
-  </ul>
-  </div>
-
-  <div class="cartodb-legend dots">
-    <span class="subhead"></span>
-    <ul>
-    </ul>
-  </div>
-
-</div>
 
 
 
